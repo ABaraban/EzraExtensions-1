@@ -13,6 +13,6 @@ public class SpeedLimit {
         int fine = (speedDifferential < 10) ? 50 : 50 + (addedFine * 10);
         System.out.println("You reported a speed of " + actualSpeed + " MPH for a speed limit of " + speedLimit + "");
         System.out.println("You went " + speedDifferential + " over the speed limit.");
-        System.out.println("Your fine is " + fine + " $.");
+        System.out.println("Your fine is " + fine + "$.");
     }
 }
