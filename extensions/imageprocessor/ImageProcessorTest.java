@@ -13,13 +13,13 @@ public class ImageProcessorTest {
 	public void darkerTest() {
 		for(int i=0; i<1000; i++){
 			int randomInt = (int) (255*Math.random());
-			int darker= Filters.darker(randomInt); //pixelComponent after the darker operation has been performed.
+			int darker= extensions.imageprocessor.Filters.darker(randomInt); //pixelComponent after the darker operation has been performed.
 			if(randomInt!=0){
 				// if expression is false -> error message 
 				assertTrue("Pixel did not get any darker", randomInt> darker); 
 			}
 		}
-		assertEquals(0, Filters.darker(0));  //Black shouldn't get any blacker
+		assertEquals(0, extensions.imageprocessor.Filters.darker(0));  //Black shouldn't get any blacker
 	}
 
 	@Test
