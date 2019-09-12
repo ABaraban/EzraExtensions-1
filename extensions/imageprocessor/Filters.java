@@ -30,7 +30,11 @@ public class Filters {
 	// This method takes the color of each pixel and creates a new color without any green.  Returns an array of integers [r, g ,b].
 	// USED IN: example_purplish
 	public static Color purplish(Color c) {
-		return Color.black;  // FIXME
+		int red = c.getRed();
+		int blue = c.getBlue();
+		int green = 0;
+		Color d = new Color(red, green, blue);
+		return d;  // FIXME
 	}
 
 	// Now that you've seen the examples, complete the following methods.
@@ -54,42 +58,61 @@ public class Filters {
 
 	//This method returns the negative of a pixel by inverting its color components.
 	// USED IN: negative
-	public static int negative(int a) { return (-1) * a;  // FIXME
+	public static int negative(int a) { return 255-a;  // FIXME
 	}
 
 	//This method reduces the number of possible values for a given color component
 	//from 256 to 2, by returning either 0 or 255 based on the original value.
 	// USED IN: posterize
-	public static int posterize(int a) {
-		return 0;   // FIXME
+	public static int posterize(int a) { return (a>(256/2)?255:0)  ;   // FIXME
 	}
 
 	//This method returns a color that is brighter than the original color.
 	// USED IN: brighter
 	//FIX ME
 	public static Color brighter(Color c) {
-		return Color.black;  // FIXME
+		return c.brighter();  // FIXME
 	}
 
 	//This method returns a color that is some shade of gray, by making a new
 	//color having equal RGB components. returns an array of integers [r, g ,b].
 	// USED IN: grayscale
 	public static Color grayscale(Color c) {
-		return Color.black;  // FIXME
+		int red = c.getRed();
+		int green = c.getGreen();
+		int blue = c.getBlue();
+		int sumAverage = (blue + green + red)/3;
+		Color d = new Color(sumAverage, sumAverage, sumAverage);
+		return(d) ;  // FIXME
 	}
 
 	//This method returns either black or white, based on the intensity of the
 	//originally provided color. returns an array of integers [r, g ,b].
 	// USED IN: blackWhite
 	public static Color blackAndWhite(Color c) {
-		return Color.black;   // FIXME
+		int red = c.getRed();
+		int blue = c.getBlue();
+		int green = c.getGreen();
+		int sum = red +blue+green;
+
+		return (sum > 384?Color.BLACK : Color.WHITE);   // FIXME
 	}
 
 	//This method combines two images by choosing for each location the brighter 
 	//pixel in the same location from the two source images.
 	// USED IN: combineBrighter
 	public static Color combineBrighter(Color c1, Color c2) {
-		return Color.black;  // FIXME
+		int red = c1.getRed();
+		int blue = c1.getBlue();
+		int green = c1.getGreen();
+		int red2 = c2.getRed();
+		int blue2 = c2.getBlue();
+		int green2 = c2.getGreen();
+		int sum1 = red + blue +green;
+		int sum2 = red2 + blue2 + green2;
+		Color d = new Color(0,0,0);
+		d = (sum1>=sum2?c1:c2);
+		return d;  // FIXME
 
 
 	}
