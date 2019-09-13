@@ -64,7 +64,9 @@ public class Filters {
 	//This method reduces the number of possible values for a given color component
 	//from 256 to 2, by returning either 0 or 255 based on the original value.
 	// USED IN: posterize
-	public static int posterize(int a) { return (a>(256/2)?255:0)  ;   // FIXME
+	public static int posterize(int a) {
+		a = (a/128) *255;
+		return a ;   // FIXME
 	}
 
 	//This method returns a color that is brighter than the original color.
@@ -94,8 +96,10 @@ public class Filters {
 		int blue = c.getBlue();
 		int green = c.getGreen();
 		int sum = red +blue+green;
+		sum = sum/384;
 
-		return (sum > 384?Color.BLACK : Color.WHITE);   // FIXME
+
+		return (sum > 384 ? Color.BLACK : Color.WHITE);   // FIXME
 	}
 
 	//This method combines two images by choosing for each location the brighter 
@@ -131,6 +135,9 @@ public class Filters {
 	 * @return
 	 */
 	public static Color bgSubtract(Color source1Color, Color source2Color, int tolerance) {
+	    if (tolerance > 30) {
+
+        }
 		return Color.black;
 
 	}
