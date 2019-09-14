@@ -96,10 +96,10 @@ public class Filters {
 		int blue = c.getBlue();
 		int green = c.getGreen();
 		int sum = red +blue+green;
-		sum = sum/384;
+		sum = 255*(sum/384);
 
 
-		return (sum > 384 ? Color.BLACK : Color.WHITE);   // FIXME
+		return (new Color(sum, sum, sum));   // FIXME
 	}
 
 	//This method combines two images by choosing for each location the brighter 
