@@ -85,6 +85,7 @@ public class Transforms {
 		for(int x=0; x<target.width(); x++) {
 			for (int y = target.height()-1; y>0; y=y-1){
 				double amountRed = (255.0/target.width())*x;
+				
 				double amountGreen = (255.0*y)/target.height();
 				Color c = new Color((int)amountRed, (int)amountGreen, 128);
 				System.out.println("Red:"+amountRed+" "+(255.0/target.width()));
