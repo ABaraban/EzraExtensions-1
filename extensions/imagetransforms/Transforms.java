@@ -83,11 +83,14 @@ public class Transforms {
 		System.out.println(target.height() + "height");
 		System.out.println(target.width() + "width");
 		for(int x=0; x<target.width(); x++) {
-			int amountRed = target.width()*x;
-			for (int y= 0; y<target.height(); y++){
-				int amountGreen = target.height()*y;
-				Color c = new Color(amountRed, amountGreen, 128);
+			for (int y = target.height()-1; y>0; y=y-1){
+				double amountRed = (255.0/target.width())*x;
+				double amountGreen = (255.0*y)/target.height();
+				Color c = new Color((int)amountRed, (int)amountGreen, 128);
+				System.out.println("Red:"+amountRed+" "+(255.0/target.width()));
+				System.out.println("Green:"+amountRed+" "+(255.0/target.height()));
 				target.set(x, y, c);
+				System.out.println(amountGreen);
 				}
 
 			}

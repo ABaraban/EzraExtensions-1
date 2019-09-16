@@ -23,6 +23,30 @@ public class Mario {
         //
         // Create the mountain by printing to System.out
         //
+        if (pattern == 1){
+            for (int i =0; i<size; ++i) {
+                String s = "";
+            }
+
+        }
+        if (pattern == 2){
+            for (int i =0; i<size; ++i){
+                System.out.println("#");
+            }
+
+        }
+        if (pattern == 3){
+            for (int i =0; i<size; ++i){
+                System.out.println("#");
+            }
+
+        }
+        if (pattern == 4){
+            for (int i =0; i<size; ++i){
+                System.out.println("#");
+            }
+
+        }
 
 
     }
